@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ReduxProvider>
-        <body className={open_sanse.className}>{children}</body>
+        <body className={open_sanse.className+" h-screen"}>{children}</body>
       </ReduxProvider>
     </html>
   )
