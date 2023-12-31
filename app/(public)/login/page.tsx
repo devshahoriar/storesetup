@@ -3,7 +3,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
-import { Toaster } from '@/components/ui/toaster'
 import { Button } from '@/components/ui/button'
 import {
   Form,
@@ -48,46 +47,51 @@ const page = () => {
   }
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="w-[500px]">
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input placeholder="user@user.com" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Password</FormLabel>
-                <FormControl>
-                  <Input
-                    type="password"
-                    placeholder="Your password"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <Button className="mt-5" type="submit">
-            Login
-          </Button>
-        </form>
-        <Toaster />
-      </Form>
-    </div>
+    <>
+      <div className="flex justify-center items-center h-screen">
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="w-[500px] px-4 md:px-0">
+            <section>
+              <h1 className='w-full text-2xl text-center font-bold mb-10'>Store Setup app</h1>
+            </section>
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input placeholder="user@user.com" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Password</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="password"
+                      placeholder="Your password"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button className="mt-5" type="submit">
+              Login
+            </Button>
+          </form>
+        </Form>
+      </div>
+    
+    </>
   )
 }
 

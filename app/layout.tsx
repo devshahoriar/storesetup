@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Open_Sans } from 'next/font/google'
 import './globals.css'
 import ReduxProvider from '@/redux/Provider'
+import { Toaster } from '@/components/ui/toaster'
 
 const open_sanse = Open_Sans({ subsets: ['latin'] })
 
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ReduxProvider>
-        <body className={open_sanse.className+" h-screen"}>{children}</body>
+        <body className={open_sanse.className}>{children}
+        <Toaster />
+        </body>
       </ReduxProvider>
     </html>
   )

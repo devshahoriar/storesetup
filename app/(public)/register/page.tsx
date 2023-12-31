@@ -3,7 +3,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
-import { Toaster } from '@/components/ui/toaster'
 import { Button } from '@/components/ui/button'
 import {
   Form,
@@ -49,7 +48,11 @@ const page = () => {
   return (
     <div className='flex justify-center items-center h-screen'>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="w-[500px]">
+      
+        <form onSubmit={form.handleSubmit(onSubmit)} className="w-[500px] px-4 md:px-0">
+        <section>
+              <h1 className='w-full text-2xl text-center font-bold mb-10'>Store Setup app</h1>
+            </section>
           <FormField
             control={form.control}
             name="username"
@@ -78,7 +81,6 @@ const page = () => {
           />
           <Button className='mt-5' type="submit">Register</Button>
         </form>
-        <Toaster />
       </Form>
     </div>
   )
